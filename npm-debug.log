@@ -37,6 +37,10 @@
 23 silly publish   author: { name: 'Romain Diegoni' },
 23 silly publish   license: 'MIT',
 23 silly publish   dependencies: { fs: '0.0.1-security' },
+23 silly publish   repository:
+23 silly publish    { type: 'git',
+23 silly publish      url: 'git+https://github.com/drioemgaoin/GulpMainNpmFiles.git' },
+23 silly publish   bugs: { url: 'https://github.com/drioemgaoin/GulpMainNpmFiles/issues' },
 23 silly publish   devDependencies:
 23 silly publish    { mocha: '3.2.0',
 23 silly publish      path: '0.12.7',
@@ -44,8 +48,10 @@
 23 silly publish      winston: 'git://github.com/flatiron/winston.git#master' },
 23 silly publish   readme: '## Installation\nTo install this module, you need to run the following command\n\n```Javascript\n$ npm install gulp-main-npm-files\n```\n\n## Usage\n\n```Javascript\nvar mainNpmFiles = require(\'gulp-main-npm-files\');\nvar files = mainNpmFiles([[filter, ]options][, callback]);\n```\n\nThis will read your package.json, iterate through your dependencies and returns an array of files defined in the main property of the packages package.json.\n\n## Usage with gulp\n\n```Javascript\nvar gulp = require(\'gulp\');\nvar mainNpmFiles = require(\'gulp-main-npm-files\');\n\ngulp.task(\'TASKNAME\', function() {\n    return gulp.src(mainNpmFiles())\n        .pipe(/* what you want to do with the files */)\n});\n```\n\n## Options\nThe module accepts the following options:\n- **nodeModulesPath**: path to your node_modules. By default, it is ./node_modules that means this directory is at your project\'s root.\n\n```Javascript\nvar mainNpmFiles = require(\'gulp-main-npm-files\');\n\n// Copy dependencies from ./node_modules to build/node_modules/\ngulp.task(\'copyNpmDependencies\', function() {\n  gulp.src(mainNpmFiles(), { base:\'./\' })\n    .pipe(gulp.dest(\'./build\'));\n});\n```\n\n```Javascript\nvar mainNpmFiles = require(\'gulp-main-npm-files\');\n\n// Copy dependencies from ./path/node_modules to build/node_modules/\ngulp.task(\'copyNpmDependencies\', function() {\n  gulp.src(mainNpmFiles({ nodeModulesPath: "./path/node_modules" }), { base:\'./\' })\n    .pipe(gulp.dest(\'./build\'));\n});\n```\n\n- **packageJsonPath**: path to you package.json file. By default, it is ./package.json that means this file is at your project\'s root with the default name.\n\n```Javascript\nvar mainNpmFiles = require(\'gulp-main-npm-files\');\n\n// Copy dependencies present in ./package.jon to build/node_modules/\ngulp.task(\'copyNpmDependencies\', function() {\n  gulp.src(mainNpmFiles(), { base:\'./\' })\n    .pipe(gulp.dest(\'./build\'));\n});\n```\n\n```Javascript\nvar mainNpmFiles = require(\'gulp-main-npm-files\');\n\n// Copy dependencies present in ./path/package.json to build/node_modules/\ngulp.task(\'copyNpmDependencies\', function() {\n  gulp.src(mainNpmFiles({ packageJsonPath: "path/package.json" }), { base:\'./\' })\n    .pipe(gulp.dest(\'./build\'));\n});\n```\n\n- **devDependencies**: true if you want to take account the dev dependencies, false otherwise. The default value is false.\n\n```Javascript\nvar mainNpmFiles = require(\'gulp-main-npm-files\');\n\n// Copy dependencies to build/node_modules/\ngulp.task(\'copyNpmDependencies\', function() {\n  gulp.src(mainNpmFiles(), { base:\'./\' })\n    .pipe(gulp.dest(\'./build\'));\n});\n```\n\n```Javascript\nvar mainNpmFiles = require(\'gulp-main-npm-files\');\n\n// Copy dev dependencies and dependencies to build/node_modules/\ngulp.task(\'copyNpmDependencies\', function() {\n  gulp.src(mainNpmFiles({ devDependencies: true }), { base:\'./\' })\n    .pipe(gulp.dest(\'./build\'));\n});\n```\n\n## Comments\nDon\'t hesitate to send me any recommendations, suggestions about this project. I really want to have some returns about does it work well, does it match user expectation, etc.\n\nYou can send me any issues you want or contact me to my github email and put the repository name in the subject.\n',
 23 silly publish   readmeFilename: 'Readme.md',
+23 silly publish   gitHead: 'f1ad9e6cde82b4d2da2a5a957c6b9d23b1f65fe3',
+23 silly publish   homepage: 'https://github.com/drioemgaoin/GulpMainNpmFiles#readme',
 23 silly publish   _id: 'gulp-main-npm-files@1.0.1',
-23 silly publish   _shasum: '0b5b4de81ff4bb0bf5eebcfaf495a20d9c5aa639',
+23 silly publish   _shasum: 'eca309d27c77fc5a7b5aca5acf2d5c20cf911a55',
 23 silly publish   _from: '.' }
 24 info lifecycle gulp-main-npm-files@1.0.1~prepublishOnly: gulp-main-npm-files@1.0.1
 25 silly lifecycle gulp-main-npm-files@1.0.1~prepublishOnly: no script for prepublishOnly, continuing
@@ -66,22 +72,22 @@
 33 silly publish uploading /Users/romaindiegoni/.npm/gulp-main-npm-files/1.0.1/package.tgz
 34 verbose request uri https://registry.npmjs.org/gulp-main-npm-files
 35 verbose request sending authorization for write operation
-36 info attempt registry request try #1 at 20:04:15
+36 info attempt registry request try #1 at 20:09:54
 37 verbose request using bearer token for auth
-38 verbose request id 0a0a0039cda8b1d3
+38 verbose request id 6d0d9c42c319d5b3
 39 http request PUT https://registry.npmjs.org/gulp-main-npm-files
 40 http 403 https://registry.npmjs.org/gulp-main-npm-files
 41 verbose headers { 'content-type': 'application/json',
 41 verbose headers   'cache-control': 'max-age=300',
 41 verbose headers   'content-length': '95',
 41 verbose headers   'accept-ranges': 'bytes',
-41 verbose headers   date: 'Wed, 07 Dec 2016 20:04:16 GMT',
+41 verbose headers   date: 'Wed, 07 Dec 2016 20:09:55 GMT',
 41 verbose headers   via: '1.1 varnish',
 41 verbose headers   connection: 'keep-alive',
-41 verbose headers   'x-served-by': 'cache-lhr6325-LHR',
+41 verbose headers   'x-served-by': 'cache-lhr6328-LHR',
 41 verbose headers   'x-cache': 'MISS',
 41 verbose headers   'x-cache-hits': '0',
-41 verbose headers   'x-timer': 'S1481141055.628946,VS0,VE1147',
+41 verbose headers   'x-timer': 'S1481141394.625599,VS0,VE790',
 41 verbose headers   vary: 'Accept-Encoding' }
 42 verbose request invalidating /Users/romaindiegoni/.npm/registry.npmjs.org/gulp-main-npm-files on PUT
 43 error publish Failed PUT 403
