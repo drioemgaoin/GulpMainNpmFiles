@@ -1,0 +1,7 @@
+{
+  "main": "index.js",
+  "dependencies": {
+    "module1": "*",
+    "module2": "*"
+  }
+}
