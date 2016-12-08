@@ -1,4 +1,5 @@
 var fs = require('fs');
+var callerId = require('caller-id');
 
 module.exports = function(options) {
   function getMainFile(modulePath) {
@@ -10,10 +11,16 @@ module.exports = function(options) {
 
   if(!options.nodeModulesPath) {
     options.nodeModulesPath = './node_modules';
+  } else if(!path.isAbsolute(options.nodeModulesPath)) {
+    var caller = callerId.getData();
+    options.nodeModulesPath = path.join(path.dirname(caller.filePath), options.nodeModulesPath);
   }
 
   if(!options.packageJsonPath) {
     options.packageJsonPath = './package.json';
+  } else if(!path.isAbsolute(options.packageJsonPath)) {
+    var caller = callerId.getData();
+    options.packageJsonPath = path.join(path.dirname(caller.filePath), options.packageJsonPath);
   }
 
   var buffer, packages, keys;

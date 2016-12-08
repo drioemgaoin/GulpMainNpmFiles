@@ -1,6 +1,6 @@
 {
   "name": "gulp-main-npm-files",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Get main files from your installed npm packages.",
   "main": "index.js",
   "scripts": {
@@ -9,12 +9,12 @@
   "author": "Romain Diegoni",
   "license": "MIT",
   "dependencies": {
+    "caller-id": "0.1.0",
     "fs": "0.0.1-security"
   },
-  "repository" :
-  {
-    "type" : "git",
-    "url" : "https://github.com/drioemgaoin/GulpMainNpmFiles.git"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/drioemgaoin/GulpMainNpmFiles.git"
   },
   "bugs": {
     "url": "https://github.com/drioemgaoin/GulpMainNpmFiles/issues"
