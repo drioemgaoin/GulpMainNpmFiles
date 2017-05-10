@@ -94,6 +94,22 @@ gulp.task('copyNpmDependencies', function() {
 });
 ```
 
+- **overrides**: Object of overrides to use for a package. Format is packageName => array of paths. For use when alternate files are wanted or the vendor package.json is incorrect.
+
+```Javascript
+var mainNpmFiles = require('gulp-main-npm-files');
+
+// Copy dependencies to build/node_modules/
+gulp.task('copyNpmDependencies', function() {
+  gulp.src(mainNpmFiles({
+		overrides: {
+			select2:  ['./dist/js/select2.full.js', './dist/css/select2.css']
+		}
+	}), { base:'./' })
+    .pipe(gulp.dest('./build'));
+});
+```
+
 ## Comments
 Don't hesitate to send me any recommendations, suggestions about this project. I really want to have some returns about does it work well, does it match user expectation, etc.
 
