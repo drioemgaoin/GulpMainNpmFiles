@@ -30,7 +30,13 @@ module.exports = function(options) {
   keys = [];
 
   for (var key in packages.dependencies) {
+    if(options.overrides && options.overrides.hasOwnProperty(key)) {
+      options.overrides[key].forEach(function(override) {
+        keys.push(path.join(options.nodeModulesPath, key, override));
+      }, this);
+    } else {
     keys.push(getMainFile(options.nodeModulesPath + "/" + key));
+    }
   }
 
   if (options.devDependencies) {
