@@ -5,7 +5,7 @@ var callerId = require('caller-id');
 module.exports = function(options) {
   function getMainFile(modulePath) {
     var json = JSON.parse(fs.readFileSync(modulePath + '/package.json'));
-    return modulePath + "/" + (json.main || "index.js");
+    return modulePath + "/" + (json.module || json.main || "index.js");
   };
 
   options = options || {};
